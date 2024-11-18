@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Logo</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <!-- <link rel="stylesheet" href="book.css"> -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+            <script src="/js/index.js"></script>
+        <script src='./js/home.js'></script>
+    </head>
+
+    <body>
+        
+        <div class="box" style="pointer-events: none;"></div>
+
+        <div class="circle">
+            <p class="circle-text">Drag or click</p>
+        </div>
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo-text">
+                    <span class="logo-char">p</span>
+                    <span class="logo-char">o</span>
+                    <span class="logo-char">p</span>
+                    <span class="logo-char">p</span>
+                    <span class="logo-char">r</span>
+                </div>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a>Services</a>
+                        <ul class="dropdown-menu">
+                            <% services.forEach(service => { %>
+                                <li>
+                                    <a href="<%= service.path%>"><%= service.name%></a>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a>About Us</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Our Vision</a></li>
+                            <li><a href="/ourTeam.html">Our Team</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact-us.html">Contact</a>
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="nav-icon">
+                <img class="ham-svg" src="./asset/hamburger-svg.svg" />
+            </div>
+
+        </div>
+        <div id="sidebar" class="sidebar">
+
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="sidebar-header">
+                        <div class="close"><i
+                                class="fa fa-arrow-right"></i></div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a>Services</a>
+                    </li>
+                    <li id='services-options' style="display: none;">
+                        <ul class="options-list">
+                            <% services.forEach(service => { %> 
+                                <li class="nav-item"><a href="<%= service.path%>"><%= service.name%></a></li>
+                            <% }) %>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a>About Us</a>
+                    </li>
+                    <li id='about-us-options' style="display: none;"
+                        class="nav-item">
+                        <ul class="options-list">
+                            <li class="nav-item"><a href="/ourTeam.html">Our Vision</a></li>
+                            <li class="nav-item"><a href="/ourTeam.html">Our Team</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="page-container">
+            <section id="main-section">
+                <div class="video-container" id="main-background-video">
+                    <div class="bottom-video-container">
+                        <video autoplay loop muted class="bottom-video-element">
+                            <source src="./asset/videoplayback.mp4"
+                                type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="video-container"
+                    style="z-index:1; position: absolute;">
+                    <div>
+                        <img class="top-video-element"
+                            src="./asset/Video-Services-Motion-Graphics-unscreen.gif"
+                            alt="GIF Description" style="width:80vw">
+
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="l-section" style="gap: 10%;">
+                <div class="text-container">
+                    <p class="p-heading blue-text">SELECTED WORK</p>
+                    <p class="text-value">Enjoy some of our best work in
+                        immensive <span class="blue-text"> web</span>,
+                        <span class="green-text"> augmented reality </span> and
+                        <span class="yellow-text"> virtual reality
+                        </span> experiences</p>
+                </div>
+                <div class="slider-container">
+                    <div class="slider-item draggable">
+                        <img class="slider-item-img" src="./asset/1.jpg" />
+                    </div>
+                    <div class="slider-item draggable">
+                        <img class="slider-item-img" src="./asset/2.jpg" />
+                    </div>
+                    <div class="slider-item draggable">
+                        <img class="slider-item-img" src="./asset/3.avif" />
+                    </div>
+                    <div class="slider-item draggable">
+                        <img class="slider-item-img" src="./asset/4.avif" />
+                    </div>
+                    <div class="slider-item draggable">
+                        <img class="slider-item-img" src="./asset/5.webp" />
+                    </div>
+                    <div class="slider-item draggable">
+                        <img class="slider-item-img" src="./asset/6.jpg" />
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="sec-3">
+                    <p class="white-text desc-text"
+                        style="margin-bottom: 30px; text-align:center;">FEATURED INSIGHTS</p>
+                    <div class="features-container">
+                        <div class="feature-row">
+                            <div class="left-feature">
+                                <p class="feature">Unleashing immersive
+                                    experiences: elevate your brand with custom
+                                    3D
+                                    modelling</p>
+                            </div>
+                            <div class="right-feature">
+                                <p class="feature">Scrollytelling: transforming
+                                    digital storytelling with engagement and
+                                    creativity</p>
+                            </div>
+
+                        </div>
+                        <div class="feature-row">
+                            <div class="left-feature">
+                                <p class="feature">Photogrammetry and NeRF
+                                    compared</p>
+                            </div>
+                            <div class="right-feature">
+                                <p class="feature">Digital discoveries: how VR
+                                    is reshaping the travel industry</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-top: 10%;">
+                <h2 class="title-large">
+                    <span>let's make</span>
+                    <span>great work</span>
+                    <span>together</span>
+                </h2>
+            </section>
+        </div>
+        <!-- <section class="footer">
+            <div class="features-container">
+                <div class="feature-row">
+                    <div class="left-feature">
+                        <p class="p-heading white-text">STAY UP TO DATE</p>
+                        <h4 class="title-medium">
+                            get our newsletter
+                        </h4>
+                        <label class="input-label p-heading">YOUR
+                            EMAIL</label>
+                        <input class="input-field" type="email"
+                            placeholder="Your email" />
+                    </div>
+                    <div class="right-feature">
+                        <p class="p-heading white-text">GET IN TOUCH</p>
+                        <h4 class="title-small">
+                            hello@poppr.be
+                            +32(0)9 335 33 33
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+        </section> -->
+        
+    </body>
+
+</html>

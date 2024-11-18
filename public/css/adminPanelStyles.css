@@ -1,0 +1,183 @@
+/* adminPanelStyles.css */
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+h1, h2, h3 {
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Sidebar Menu */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu > li {
+  margin-bottom: 1.5rem;
+}
+
+.menu a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.menu a:hover {
+  background-color: #34495e;
+}
+
+.submenu {
+  margin-left: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.submenu > li {
+  margin: 0.5rem 0;
+}
+
+.submenu > li a {
+  font-weight: normal;
+}
+
+/* Form Styles */
+form {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #3498db;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+form fieldset {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+form fieldset legend {
+  font-weight: bold;
+  color: #555;
+}
+
+form button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
+
+/* Inclusions and Processes */
+.inclusion, .process {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.inclusion label, .process label {
+  font-weight: bold;
+}
+
+.add-inclusion, .add-process {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-inclusion:hover, .add-process:hover {
+  background-color: #1e8449;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}

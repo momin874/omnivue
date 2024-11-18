@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="book.css"> -->
+    <title>The OmniVue</title>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <script src="/js/index.js"></script>
+
+</head>
+<body>
+    <div class="box" style="pointer-events: none;"></div>
+
+    <div class="circle">
+        <p class="circle-text">Drag or click</p>
+    </div>
+    <div class="header">
+        <div class="logo-container">
+            <div class="logo-text">
+                <span class="logo-char">p</span>
+                <span class="logo-char">o</span>
+                <span class="logo-char">p</span>
+                <span class="logo-char">p</span>
+                <span class="logo-char">r</span>
+            </div>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a>Services</a>
+                    <ul class="dropdown-menu">
+                        <% services.forEach(service => { %>
+                            <li>
+                                <a href="<%= service.path%>"><%= service.name%></a>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a>About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Our Vision</a></li>
+                        <li><a href="/ourTeam.html">Our Team</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact-us.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Schedule a Call</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-icon">
+            <img class="ham-svg" src="./asset/hamburger-svg.svg" />
+        </div>
+        <div id="sidebar" class="sidebar">
+
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="sidebar-header">
+                        <div class="close"><i
+                                class="fa fa-arrow-right"></i></div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a>Services</a>
+                    </li>
+                    <li id='services-options' style="display: none;">
+                        <ul class="options-list">
+                            <% services.forEach(service => { %> 
+                                <li class="nav-item"><a href="<%= service.path%>"><%= service.name%></a></li>
+                            <% }) %>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a>About Us</a>
+                    </li>
+                    <li id='about-us-options' style="display: none;"
+                        class="nav-item">
+                        <ul class="options-list">
+                            <li class="nav-item"><a href="#">Our Vision</a></li>
+                            <li class="nav-item"><a href="/ourTeam.html">Our Team</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact-us.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Schedule a Call</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="page-container other-pages">
+        <section class="s-section">
+            <div class="feature-row no-gap">
+                <h2 class="left-feature title-large section-text">
+                    <% service.name.split(' ').forEach(word => { %>
+                        <span class="animated-text-X">
+                            <span style="text-transform: capitalize;"><%= word.split('')[0] %></span><%= word.split('').slice(1).join('')%>  
+                        </span>    
+                    <% }) %>
+                    
+                </h2>
+                <div class="right-feature flex-start">
+                    <div class="image-container animated-img">
+                        <img src="./asset/1.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="s-section center-align">
+            <div class="feature-col">
+                <div class="slogan-container feature-top">
+                    <h1 class="slogan"><%= service.slogan%> 
+                </h1>
+                </div>
+                <div class="feature-bottom">
+                    <div class="text-container desc-container">
+                        <span class="text-value desc-text ">
+                            <!-- We craft cohesive <span class="green-text">communication</span> strategies that <span class="blue-text">resonate</span> across every <span class="yellow-text">touchpoint</span>. -->
+                            <%= service.description%>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="features-container inc-feature">
+                <div class="feature-col">
+                    <div class="feature-top">
+                        <div class="text-container text-medium" style="width: 100%; justify-content: center;">
+                            <p class="inc-p">Inclusions</p>
+                        </div>
+                    </div>
+                    <div class="feature-bottom inc-margin">
+                        <div class="features-container">
+                            <div class="feature-row rs-gap">
+                                <div class="left-feature">
+                                    <div class="image-container inc-image-container" id = 'iclusion-1' >
+                                        <h2 class="title-medium top-padding">
+                                            <span class=""><span style="text-transform: capitalize;">C</span>ontent</span>
+                                            <span class=""><span style="text-transform: capitalize;">A</span>cross</span>
+                                            <span class=""><span style="text-transform: capitalize;">T</span>he</span>
+                                            <span class=""><span style="text-transform: capitalize;">S</span>pectrum</span>
+                                        </h2>
+                                        <h2 class="title-medium top-padding off-view">
+                                            <span class="inc-desc-text"> From website copy to social media magic, we create content that engages and converts.</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="right-feature">
+                                    <div class="image-container inc-image-container" id = 'inclusion-2'>
+                                        <h2 class="title-medium top-padding">
+                                            <span class=""><span style="text-transform: capitalize;">T</span>argeted</span>
+                                            <span class=""><span style="text-transform: capitalize;">M</span>arketing</span>
+                                        </h2>
+                                        <h2 class="title-medium top-padding off-view">
+                                            <span class="inc-desc-text">We seamlessly integrate your message across all platforms, for a unified brand experience.</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="display: flex; flex-direction: row;">
+            <div class="process-container">
+                <div class="process">
+                    <div class="step">
+                        <div class="process-title">
+                            <div class="process-title-inner">
+                                <div class="process-number">
+                                    1
+                                </div>
+                                <svg class="clip-path" width="0" height="0">
+                                    <defs>
+                                        <clippath id="cut-out">
+                                            <rect x="10" y="0" width="600"
+                                                height="200" />
+                                        </clippath>
+                                    </defs>
+                                </svg>
+                                <div class="outer-circle"
+                                    style="clip-path: url(#cut-out);">
+
+                                    <div class="inner-circle">
+                                        <h3>Discovery</h3>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="connector"></div>
+                    </div>
+                    <div class="step">
+                        <div class="process-detail">
+                            <p>We delve deep with you to understand your
+                                vision, target audience, and competitive
+                                landscape.</p>
+                        </div>
+                        <div class="connector invisible"></div>
+                    </div>
+
+                </div>
+                <div class="process">
+                    <div class="step">
+                        <div class="process-title">
+                            <div class="process-title-inner">
+                                <div class="process-number">
+                                    2
+                                </div>
+                                <svg class="clip-path" width="0" height="0">
+                                    <defs>
+                                        <clippath id="cut-out">
+                                            <rect x="10" y="0" width="600"
+                                                height="200" />
+                                        </clippath>
+                                    </defs>
+                                </svg>
+                                <div class="outer-circle" style="clip-path: url(#cut-out);">
+                                    <div class="inner-circle">
+                                        <h3>Strategic Spark</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="connector"></div>
+                    </div>
+                    <div class="step">
+                        <div class="process-detail">
+                            <p>We develop a data-driven brand strategy that
+                                aligns with your business goals and
+                                identity.</p>
+                        </div>
+                        <div class="connector invisible"></div>
+                    </div>
+
+                </div>
+                <div class="process">
+                    <div class="step">
+                        <div class="process-title">
+                            <div class="process-title-inner">
+                                <div class="process-number">
+                                    3
+                                </div>
+                                <svg class="clip-path" width="0" height="0">
+                                    <defs>
+                                        <clippath id="cut-out">
+                                            <rect x="10" y="0" width="600"
+                                                height="200" />
+                                        </clippath>
+                                    </defs>
+                                </svg>
+                                <div class="outer-circle" style="clip-path: url(#cut-out);">
+                                    <div class="inner-circle">
+                                        <h3>Brand Elements Design</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="connector"></div>
+                    </div>
+                    <div class="step">
+                        <div class="process-detail">
+                            <p>Our team brainstorms and presents a variety
+                                of logo and mood board concepts to capture
+                                your brand's essence together.</p>
+                        </div>
+                        <div class="connector invisible"></div>
+                    </div>
+
+                </div>
+                <div class="process">
+                    <div class="step">
+                        <div class="process-title">
+                            <div class="process-title-inner">
+                                <div class="process-number">
+                                    4
+                                </div>
+                                <svg class="clip-path" width="0" height="0">
+                                    <defs>
+                                        <clippath id="cut-out">
+                                            <rect x="10" y="0" width="600"
+                                                height="200" />
+                                        </clippath>
+                                    </defs>
+                                </svg>
+                                <div class="outer-circle" style="clip-path: url(#cut-out);">
+                                    <div class="inner-circle">
+                                        <h3>Brand Activation</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="connector"></div>
+                    </div>
+                    <div class="step">
+                        <div class="process-detail">
+                            <p>We bring your brand to life with the creation
+                                of marketing collateral and assets.</p>
+                        </div>
+                        <div class="connector invisible"></div>
+                    </div>
+
+                </div>
+                <div class="process">
+                    <div class="step">
+                        <div class="process-title">
+                            <div class="process-title-inner">
+                                <div class="process-number">
+                                    5
+                                </div>
+                                <svg class="clip-path" width="0" height="0">
+                                    <defs>
+                                        <clippath id="cut-out">
+                                            <rect x="10" y="0" width="600"
+                                                height="200" />
+                                        </clippath>
+                                    </defs>
+                                </svg>
+                                <div class="outer-circle" style="clip-path: url(#cut-out);">
+                                    <div class="inner-circle">
+                                        <h3>Launch & Beyond</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="connector"></div>
+                    </div>
+                    <div class="step">
+                        <div class="process-detail">
+                            <p>We provide brand guidelines, communication
+                                strategies, and a rollout plan to ensure a
+                                successful launch.</p>
+                        </div>
+                        <div class="connector invisible"></div>
+                    </div>
+
+                </div>
+                <div class="process">
+                    <div class="step">
+                        <div class="process-title">
+                            <div class="process-title-inner">
+                                <div class="process-number">
+                                    6
+                                </div>
+                                <svg class="clip-path" width="0" height="0">
+                                    <defs>
+                                        <clippath id="cut-out">
+                                            <rect x="10" y="0" width="600"
+                                                height="200" />
+                                        </clippath>
+                                    </defs>
+                                </svg>
+                                <div class="outer-circle" style="clip-path: url(#cut-out);">
+                                    <div class="inner-circle">
+                                        <h3>Evolving Spark</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="connector invisible"></div>
+                    </div>
+                    <div class="step">
+                        <div class="process-detail">
+                            <p>Annual brand reviews ensure your brand
+                                continues to reflect your growth and market
+                                trends.</p>
+                        </div>
+                        <div class="connector invisible"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
