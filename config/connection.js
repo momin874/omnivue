@@ -1,44 +1,30 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
+const { createClient } = require('@supabase/supabase-js');
 
-const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env;
+const { DB_NAME, SUPABASE_URL, SUPABASE_KEY } = process.env;
 
-// Step 1: Initial Sequelize instance without specifying a database
-const sequelizeServer = new Sequelize('', DB_USER, DB_PASSWORD, {
-  host: DB_HOST,
-  port: DB_PORT,
-  dialect: 'postgres', // Change to 'mysql' if you're using MySQL
-  logging: false,
-});
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 (async () => {
   try {
-    // Connect to the database server
-    await sequelizeServer.authenticate();
-    console.log('Connected to the database server.');
+    // Step 1: Connect to the default PostgreSQL database (often 'postgres' or any default DB)
+    const { data, error } = await supabase.rpc('check_database', {
+      db_name: DB_NAME, // You may create a stored procedure in Supabase to check the DB existence
+    });
 
-    // Step 2: Check if the database exists; create if it doesn’t
-    await sequelizeServer.query(`CREATE DATABASE "${DB_NAME}"`)
-      .then(() => console.log(`Database "${DB_NAME}" created successfully.`))
-      .catch(error => {
-        if (error.name === 'SequelizeDatabaseError' && error.parent.code === '42P04') {
-          console.log(`Database "${DB_NAME}" already exists.`);
-        } else {
-          throw error;
-        }
-      });
+    if (error) {
+      console.log('Error checking database:', error.message);
+    } else {
+      if (data) {
+        console.log(`Database "${DB_NAME}" exists.`);
+      } else {
+        console.log(`Database "${DB_NAME}" does not exist. Please create it via Supabase dashboard.`);
+      }
+    }
+    module.exports = supabase;
 
   } catch (error) {
     console.error('Error during database check/creation:', error);
   }
 })();
-
-// Step 3: Reinitialize Sequelize with the created database
-const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
-  host: DB_HOST,
-  port: DB_PORT,
-  dialect: 'postgres', // Adjust if needed for other databases
-  logging: false,
-});
-
-module.exports = sequelize;

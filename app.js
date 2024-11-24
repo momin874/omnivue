@@ -5,6 +5,7 @@ const app = express()
 const {adminPanelRoutes, webRoutes} = require('./routes')
 const authenticateToken = require('./middleware')
 const PORT = 3000;
+const connection = require('./config/connection')
 
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')));
